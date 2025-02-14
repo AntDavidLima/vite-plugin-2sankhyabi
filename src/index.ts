@@ -1,7 +1,13 @@
-import { createWriteStream, readFileSync, renameSync, writeFileSync } from "fs";
-import path, { join } from "path";
+import {
+  createWriteStream,
+  readdirSync,
+  readFileSync,
+  renameSync,
+  statSync,
+  writeFileSync,
+} from "fs";
+import path from "path";
 import archiver from "archiver";
-import { globSync } from "glob";
 
 export const convertToSankhyaBI = () => {
   return {
@@ -56,9 +62,9 @@ export const convertToSankhyaBI = () => {
     writeBundle(options: { dir?: string }) {
       const distDir = options.dir || "dist";
 
-      const jsFilesPath = globSync(join(distDir, "**/*.js"));
+      const jsFiles = getJsFiles(distDir);
 
-      jsFilesPath.forEach((path) => {
+      jsFiles.forEach((path) => {
         const fileContent = readFileSync(path, "utf-8");
 
         const transformedContent = fileContent.replace(
@@ -84,3 +90,18 @@ export const convertToSankhyaBI = () => {
     },
   };
 };
+
+function getJsFiles(dir: string, fileList: string[] = []) {
+  const files = readdirSync(dir);
+
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    if (statSync(filePath).isDirectory()) {
+      getJsFiles(filePath, fileList);
+    } else if (file.endsWith(".js")) {
+      fileList.push(filePath);
+    }
+  });
+
+  return fileList;
+}

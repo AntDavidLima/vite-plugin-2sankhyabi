@@ -1,6 +1,6 @@
 {
   "name": "@insulino/vite-plugin-2sankhyabi",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Plugin Vite para converter aplicações React (e outros frameworks suportados pelo Vite) em dashboards Sankhya",
   "keywords": [
     "Sankhya",
@@ -36,7 +36,6 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "archiver": "^7.0.1",
-    "glob": "^11.0.1"
+    "archiver": "^7.0.1"
   }
 }
