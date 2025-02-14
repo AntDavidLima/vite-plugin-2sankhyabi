@@ -1,0 +1,42 @@
+{
+  "name": "@insulino/vite-plugin-2sankhyabi",
+  "version": "1.0.2",
+  "description": "Plugin Vite para converter aplicações React (e outros frameworks suportados pelo Vite) em dashboards Sankhya",
+  "keywords": [
+    "Sankhya",
+    "Dashboard",
+    "BI",
+    "React",
+    "Vite",
+    "TypeScript"
+  ],
+  "homepage": "https://github.com/antdavidlima/react2sankhyabi#readme",
+  "bugs": {
+    "url": "https://github.com/antdavidlima/react2sankhyabi/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antdavidlima/react2sankhyabi.git"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "license": "MIT",
+  "author": "David Lima",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@types/archiver": "^6.0.3",
+    "@types/node": "^22.13.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "glob": "^11.0.1"
+  }
+}
